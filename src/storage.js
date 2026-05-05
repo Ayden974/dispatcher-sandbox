@@ -56,4 +56,9 @@ function remove(keys) {
   });
 }
 
-module.exports = { get, set, remove };
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { get, set, remove };
+}
+if (typeof window !== "undefined") {
+  window.storage = { get, set, remove };
+}
